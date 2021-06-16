@@ -1,4 +1,4 @@
-const VehicleService = require('./vehicle.service');
+const VehicleService = require('./vehicles.service');
 
 class Controller {
 
@@ -10,7 +10,7 @@ class Controller {
   async findById(req, res) {
     const { id } = req.params;
     const vehicle = await VehicleService.findById(id);
-    return vehicle ? res.json(vehicle) : res.json({ "messege": "Vehicle not found" });
+    return vehicle ? res.json(vehicle) : res.json({ "message": "Vehicle not found" });
   }
 
   async createOrUpdate(req, res) {
@@ -28,6 +28,7 @@ class Controller {
 
     res.json({ success: true });
   }
+
 
 }
 
