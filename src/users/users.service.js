@@ -11,7 +11,10 @@ class Service {
 
   save(user) {
     const { id, name, email, cpf, birth_date } = user;
-    return id ? update(id, name, email, cpf, birth_date) : create(name, email, cpf, birth_date);
+    return id ?
+      update(id, name, email, cpf, birth_date)
+      :
+      create(name, email, cpf, birth_date);
   }
 
   remove(id) {

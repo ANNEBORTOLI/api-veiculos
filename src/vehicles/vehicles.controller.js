@@ -4,20 +4,24 @@ class Controller {
 
   async findAll(req, res) {
     const vehicles = await VehicleService.findAll();
-    return vehicles.length == 0 ? res.json({ "messege": "No vehicle registered yet" }) : res.json(vehicles);
+    return vehicles.length == 0 ?
+      res.json({ "messege": "No vehicle registered yet" })
+      :
+      res.json(vehicles);
   }
 
   async findById(req, res) {
     const { id } = req.params;
     const vehicle = await VehicleService.findById(id);
-    return vehicle ? res.json(vehicle) : res.json({ "message": "Vehicle not found" });
+    return vehicle ?
+      res.json(vehicle)
+      :
+      res.json({ "message": "Vehicle not found" });
   }
 
-  async createOrUpdate(req, res) {
-    const { id } = req.params;
-    const { make, model, year, price, rotation_day, rotation_active, user_id } = req.body;
-
-    await VehicleService.save({ id: id, make, model, year, price, rotation_day, rotation_active, user_id });
+  async create(req, res) {
+    const { make, model, year, userId } = req.body;
+    await VehicleService.create({ make, model, year, userId });
 
     res.json({ success: true });
   }
@@ -28,8 +32,6 @@ class Controller {
 
     res.json({ success: true });
   }
-
-
 }
 
 const VehicleController = new Controller();

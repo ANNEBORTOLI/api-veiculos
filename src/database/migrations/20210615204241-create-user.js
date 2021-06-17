@@ -18,21 +18,27 @@ module.exports = {
         unique: true
       },
       cpf: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(11),
         allowNull: false,
         unique: true
       },
-      birth_date: {
-        type: Sequelize.DATE,
+      birthDate: {
+        type: Sequelize.DATEONLY,
         allowNull: false
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('NOW')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('NOW')
+      },
+      deletedAt: {
+        type: Sequelize.DATE,
+        allowNull: true
       }
     });
   },

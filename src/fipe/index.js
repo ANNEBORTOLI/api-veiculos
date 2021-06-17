@@ -39,6 +39,6 @@ router.get('/marcas/:idMarca/:idModelo/:idAno', async (req, res) => {
 
 
 /* POST home page. */
-router.post('/criar', FipeController.getVehicle);
+router.post('/tabela', FipeController.getVehicle);
 
 module.exports = router;

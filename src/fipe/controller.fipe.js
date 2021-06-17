@@ -17,8 +17,6 @@ class Controller {
     yearId = ${yearId} | 
     carPrice = ${carPrice}
     `);
-
-
     res.json({ status: 200 });
   }
 }

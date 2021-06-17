@@ -8,9 +8,7 @@ router.get('/', VehicleController.findAll);
 /* GET one vehicle. */
 router.get('/:id', VehicleController.findById);
 /* POST create vehicle. */
-router.post('/', VehicleController.createOrUpdate);
-/* PUT update vehicle. */
-router.put('/:id', VehicleController.createOrUpdate);
+router.post('/', VehicleController.create);
 /* DELETE vehicle. */
 router.delete('/:id', VehicleController.remove);
 

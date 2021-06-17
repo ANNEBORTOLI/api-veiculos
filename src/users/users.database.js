@@ -1,17 +1,17 @@
-const db = require('../database/models')
+const { User } = require('../database/models');
 
 class Database {
   findAll() {
-    return db.User.findAll();
+    return User.findAll();
   }
 
   findById(id) {
-    const result = db.User.findByPk(id);
+    const result = User.findByPk(id);
     return result;
   }
 
   create(name, email, cpf, birth_date) {
-    const result = db.User.create({
+    const result = User.create({
       name,
       email,
       cpf,
@@ -21,7 +21,7 @@ class Database {
   }
 
   update(id, name, email, cpf, birth_date) {
-    const result = db.User.update(
+    const result = User.update(
       {
         name,
         email,
@@ -35,7 +35,7 @@ class Database {
   }
 
   remove(id) {
-    return db.User.destroy(
+    return User.destroy(
       {
         where: { id: id }
       });

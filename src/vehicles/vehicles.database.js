@@ -1,38 +1,52 @@
-const db = require('../database/models');
+const { Vehicle } = require('../database/models');
 
 class Database {
   findAll() {
-    console.log('database vehicle')
-    return db.Vehicle.findAll();
+    return Vehicle.findAll();
   }
 
   findById(id) {
-    return db.Vehicle.findByPk(id);
+    return Vehicle.findByPk(id);
   }
 
-  create(make, model, year, price, rotation_day, rotation_active, user_id) {
-    const result = db.Vehicle.create({
-      make,
-      model,
-      year,
-      price,
-      rotation_day,
-      rotation_active,
-      user_id
-    });
-    return result;
-  }
-
-  update(id, make, model, year, price, rotation_day, rotation_active, user_id) {
-    const result = db.Vehicle.update(
+  createTeste(make, model, year, price, restrictionDay, restrictionActive, userId) {
+    const result = Vehicle.create(
       {
         make,
         model,
         year,
         price,
-        rotation_day,
-        rotation_active,
-        user_id
+        restrictionDay,
+        restrictionActive,
+        userId
+      }
+    );
+    return result
+  }
+  create(make, model, year) {
+
+    const result = Vehicle.create({
+      make,
+      model,
+      year,
+      price,
+      restrictionDay,
+      restrictionActive,
+      userId
+    });
+    return result;
+  }
+
+  update(id, make, model, year, price, restrictionDay, restrictionActive, userId) {
+    const result = Vehicle.update(
+      {
+        make,
+        model,
+        year,
+        price,
+        restrictionDay,
+        restrictionActive,
+        userId
       },
       {
         where: { id: id }
@@ -41,12 +55,11 @@ class Database {
   }
 
   remove(id) {
-    return db.Vehicle.destroy(
+    return Vehicle.destroy(
       {
         where: { id: id }
       });
   }
-
 }
 
 const VehicleDb = new Database();

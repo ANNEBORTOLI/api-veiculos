@@ -7,9 +7,9 @@ router.get('/', UserController.findAll);
 /* GET one user. */
 router.get('/:id', UserController.findById);
 /* POST create user. */
-router.post('/', UserController.createOrEdit);
+router.post('/', UserController.createOrUpdate);
 /* PUT update user.*/
-router.put('/:id', UserController.createOrEdit);
+router.put('/:id', UserController.createOrUpdate);
 /* DELETE user. */
 router.delete('/:id', UserController.remove);
 

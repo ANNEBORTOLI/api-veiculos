@@ -1,0 +1,11 @@
+
+[4mSequelize CLI [Node: 14.15.4, CLI: 6.2.0, ORM: 6.6.2][24m
+
+Loaded configuration file "src\database\config\config.json".
+Using environment "development".
+== 20210615204809-create-vehicle: reverting =======
+== 20210615204809-create-vehicle: reverted (0.034s)
+
+== 20210615204241-create-user: reverting =======
+== 20210615204241-create-user: reverted (0.028s)
+

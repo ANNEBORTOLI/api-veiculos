@@ -7,19 +7,20 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       Vehicle.belongsTo(models.User, {
-        foreignKey: 'user_id'
+        foreignKey: 'userId'
       });
     }
   };
   Vehicle.init({
     make: DataTypes.STRING,
     model: DataTypes.STRING,
-    year: DataTypes.INTEGER,
-    price: DataTypes.DECIMAL,
-    rotation_day: DataTypes.STRING,
-    rotation_active: DataTypes.BOOLEAN
+    year: DataTypes.STRING,
+    price: DataTypes.STRING,
+    restrictionDay: DataTypes.STRING,
+    restrictionActive: DataTypes.BOOLEAN
   }, {
     sequelize,
+    paranoid: true,
     modelName: 'Vehicle',
   });
   return Vehicle;

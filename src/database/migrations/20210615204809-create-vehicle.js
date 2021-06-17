@@ -21,17 +21,17 @@ module.exports = {
         allowNull: false
       },
       price: {
-        type: Sequelize.DECIMAL(10, 2)
+        type: Sequelize.STRING
       },
-      rotation_day: {
+      restrictionDay: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      rotation_active: {
+      restrictionActive: {
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         onDelete: 'CASCADE',
@@ -39,11 +39,17 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('NOW')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('NOW')
+      },
+      deletedAt: {
+        type: Sequelize.DATE,
+        allowNull: true
       }
     });
   },
